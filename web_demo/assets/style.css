@@ -1,0 +1,43 @@
+body {
+  text-align: center;
+  font-size: 18px;
+  font-family: sans-serif;
+}
+
+#loader {
+  display: none;
+}
+
+body.loading #loader {
+  display: block;
+}
+
+body.loading .loaded-content {
+  display: none;
+}
+
+#text-input {
+  width: 300px;
+  height: 100px;
+  padding: 10px;
+  resize: none;
+  border: 1px solid #d5d5d5;
+  font-size: 18px;
+  box-sizing: border-box;
+}
+
+#text-input:focus {
+  outline: 0;
+}
+
+#freq-view {
+  display: inline-block;
+  margin-top: 10px;
+  width: 300px;
+}
+
+.word-view {
+  padding: 3px;
+  margin: 2px 2px;
+  display: inline-block;
+}
