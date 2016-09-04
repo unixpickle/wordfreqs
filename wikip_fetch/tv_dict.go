@@ -64,7 +64,7 @@ func (t *TVDictionaryFetcher) Fetch() ([]WordEntry, error) {
 			}
 
 			dict = append(dict, WordEntry{
-				Word: firstField(scrape.Text(tds[1])),
+				Word: firstWordField(scrape.Text(tds[1])),
 				Rank: rank,
 				Freq: float64(count),
 			})
@@ -77,6 +77,19 @@ func firstField(s string) string {
 	f := strings.Fields(s)
 	if len(f) == 0 {
 		return ""
+	}
+	return f[0]
+}
+
+func firstWordField(s string) string {
+	f := strings.Fields(s)
+	if len(f) == 0 {
+		return ""
+	} else if len(f) == 1 {
+		return f[0]
+	}
+	if strings.HasPrefix(f[1], "'") {
+		return f[0] + f[1]
 	}
 	return f[0]
 }
